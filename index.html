@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>test</title>
+	<script type="text/javascript">
+		async function send_start(){
+			let res = await fetch('http://127.0.0.1:81/start');
+			if(await res.text() == "OK"){
+				document.getElementById("start").value = "停止";
+				document.getElementById("notice").innerHTML = "已开始";
+				return 0;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<form action="javascript:send_start()">
+			<input id="start" type="submit" value="开始">
+			<p id="notice">已停止</p>
+		</form>
+	</div>
+</body>
+</html>
