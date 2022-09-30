@@ -1,4 +1,5 @@
 # http2tcp_sample
+把浏览器通过http发送的数据转发到tcp后端
 ## 说明
 服务端软件（如nginx） 监听80端口
 
