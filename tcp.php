@@ -10,6 +10,8 @@ socket_write($socket0,$datas,strlen($datas));
 
 $datar = socket_read($socket0,50);
 
+socket_close($socket0);
+
 header("Content_Type:text/plain");
 
 echo $datar;
