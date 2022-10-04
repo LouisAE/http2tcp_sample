@@ -24,10 +24,10 @@ def handle_client(client_socket):
     #输出接收到的请求
     print("[*] Received: %s" % request)
     #收到开启指令时，向客户端返回OK
-    if request.decode("utf-8") == "start":
+    if request.decode("utf-8") == "test":
         client_socket.send("OK".encode())
     else:
-        pass
+        client_socket.send("Invalid request")
      
     client_socket.close()
 
