@@ -3,23 +3,21 @@
 <head>
 	<meta charset="utf-8">
 	<title>test</title>
-	<script type="text/javascript">
-		async function send_start(){
-			let res = await fetch('http://127.0.0.1:81/start');
-			if(await res.text() == "OK"){
-				document.getElementById("start").value = "停止";
-				document.getElementById("notice").innerHTML = "已开始";
-				return 0;
-			}
-		}
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#post").click(
+				function(){$.post("tcp.php",$("#content").val(),function(data,status){$("#notice").text(data)})}
+					)}
+				);
 	</script>
 </head>
 <body>
 	<div>
-		<form action="javascript:send_start()">
-			<input id="start" type="submit" value="开始">
-			<p id="notice">已停止</p>
-		</form>
+		<input id="content" type="text" required>
+		<button id="post">发送</button>
+		<p>返回数据：</p>
+		<p id="notice">没有数据</p>
 	</div>
 </body>
 </html>
